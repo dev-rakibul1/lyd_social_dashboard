@@ -1,0 +1,15 @@
+.custom-menu .ant-menu-item {
+  color: black;
+  border-radius: 5px !important;
+  margin-top: 20px !important;
+}
+
+.custom-menu .ant-menu-item:hover {
+  background-color: #2e2e2f !important;
+  color: white !important;
+  transition: 0.3s;
+}
+
+.custom-menu .ant-menu-item-selected {
+  background-color: #2e2e2f !important;
+}
