@@ -121,3 +121,7 @@ export const MainMenuTriggerIcon: CSSProperties = {
   backgroundColor: ColorPalette.colorPrimaryLight,
   color: ColorPalette.colorTextPrimary,
 };
+
+// -----------------INPUT STYLE---------------
+
+export const InputStyles: CSSProperties = {};

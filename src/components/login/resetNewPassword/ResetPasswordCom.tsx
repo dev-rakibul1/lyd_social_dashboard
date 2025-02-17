@@ -1,13 +1,13 @@
 import { Col, Row } from "antd";
-import LoginForm from "./LoginForm";
-import LoginFormImage from "./LoginFormImage";
+import LoginFormImage from "../LoginFormImage";
+import ResetPasswordForm from "./ResetPasswordForm";
 
-const LoginCom = () => {
+const ResetPasswordCom = () => {
   return (
     <div className="h-screen overflow-hidden">
       <Row>
         <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
-          <LoginForm />
+          <ResetPasswordForm />
         </Col>
         <Col
           xs={24}
@@ -25,4 +25,4 @@ const LoginCom = () => {
   );
 };
 
-export default LoginCom;
+export default ResetPasswordCom;

@@ -1,7 +1,9 @@
 "use client";
 
+import { ColorPalette } from "@/theme/themes";
 import { GoogleOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Typography } from "antd";
+import { Button, Checkbox, Divider, Form, Input, Typography } from "antd";
+import Link from "next/link";
 import { FaInstagram, FaSnapchatGhost } from "react-icons/fa";
 
 const { Title, Text } = Typography;
@@ -13,11 +15,18 @@ const LoginForm = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="w-[400px] p-6 rounded-lg">
-        <Title level={2} className="text-center">
+      <div className="w-full lg:w-[500px] p-6 rounded-lg">
+        <Title
+          level={2}
+          className="text-center"
+          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+        >
           Login to Account
         </Title>
-        <Text className="block text-center mb-5">
+        <Text
+          className="block text-center mb-5"
+          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+        >
           Welcome Back, Please Enter Details
         </Text>
 
@@ -31,7 +40,11 @@ const LoginForm = () => {
               { type: "email", message: "Invalid email format" },
             ]}
           >
-            <Input className="bg-gray-900 text-white" />
+            <Input
+              style={{ outline: "none", border: "transparent" }}
+              size="large"
+              className="bg-gray-900 text-white"
+            />
           </Form.Item>
 
           {/* Password Field */}
@@ -40,17 +53,31 @@ const LoginForm = () => {
             name="password"
             rules={[{ required: true, message: "Please enter your password" }]}
           >
-            <Input.Password className="bg-gray-900 text-white" />
+            <Input.Password
+              className="bg-gray-900 text-white "
+              size="large"
+              style={{
+                color: "white",
+                padding: "0px 11px",
+                border: "transparent",
+              }}
+            />
           </Form.Item>
 
           {/* Remember Password and Forgot Password */}
           <div className="flex justify-between items-center mb-4">
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox className="text-white">Remember Password</Checkbox>
+              <Checkbox className="text-white" style={{ color: "#fff" }}>
+                Remember Password
+              </Checkbox>
             </Form.Item>
-            <a className="text-purple-500 hover:underline" href="#">
+            <Link
+              className="text-purple-500 hover:underline"
+              style={{ color: "#fff" }}
+              href="/auth/login/forgot-password/"
+            >
               Forget Password?
-            </a>
+            </Link>
           </div>
 
           {/* Sign-in Button */}
@@ -59,6 +86,7 @@ const LoginForm = () => {
               type="primary"
               htmlType="submit"
               className="w-full bg-purple-600 hover:bg-purple-700"
+              style={{ minHeight: "40px" }}
             >
               Sign in
             </Button>
@@ -67,31 +95,60 @@ const LoginForm = () => {
 
         {/* Social Login */}
         <div className="text-center my-4">
-          <span className="inline-block w-20 border-b border-gray-600"></span>
-          <span className="mx-2 text-gray-400">Or Continue With</span>
-          <span className="inline-block w-20 border-b border-gray-600"></span>
+          <Divider
+            style={{ color: "white", border: `${ColorPalette?.colorBorder}` }}
+            plain
+          >
+            Or Continue With
+          </Divider>
         </div>
 
         <div className="flex justify-center gap-3">
-          <Button shape="circle" size="large" icon={<GoogleOutlined />} />
           <Button
-            shape="circle"
+            shape="default"
             size="large"
+            icon={<GoogleOutlined />}
+            style={{
+              padding: "15px 40px",
+              background: "#fff",
+              fontSize: "25px",
+              border: "none",
+            }}
+          />
+          <Button
+            shape="default"
+            size="large"
+            style={{
+              padding: "15px 40px",
+              background: "#FFFC00",
+              fontSize: "25px",
+              border: "none",
+            }}
             icon={<FaSnapchatGhost className="text-yellow-400" />}
           />
           <Button
-            shape="circle"
+            shape="default"
             size="large"
             icon={<FaInstagram className="text-pink-500" />}
+            style={{
+              padding: "15px 40px",
+              background: "linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7)",
+              fontSize: "25px",
+              border: "none",
+              color: "#fff",
+            }}
           />
         </div>
 
         {/* Sign-up Link */}
-        <p className="text-center mt-4 text-gray-400">
+        <p className="text-center mt-4 text-white">
           Not a member?{" "}
-          <a href="#" className="text-purple-500 hover:underline">
+          <Link
+            href="/auth/sign-up"
+            className="text-purple-500 hover:underline"
+          >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
