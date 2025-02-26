@@ -1,81 +1,123 @@
-import { FileSearchOutlined } from "@ant-design/icons";
+import {
+  AppstoreOutlined,
+  CalendarOutlined,
+  LogoutOutlined,
+  SettingOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import Link from "next/link";
-import { FaHandsClapping } from "react-icons/fa6";
-import { IoNotificationsOutline } from "react-icons/io5";
-import { LuSquarePlus } from "react-icons/lu";
-import { PiCalendarStarBold } from "react-icons/pi";
-import { RiUserSearchLine } from "react-icons/ri";
-import { TbMessages } from "react-icons/tb";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { GrLineChart } from "react-icons/gr";
+import { IoRocketOutline } from "react-icons/io5";
+import {
+  MdOutlineContactSupport,
+  MdOutlineDescription,
+  MdOutlinePrivacyTip,
+} from "react-icons/md";
+import { RiUserSettingsLine } from "react-icons/ri";
 
 const sidebarItems = () => {
-  // Find an Activities
-  const findAnActivities: MenuProps["items"] = [
+  // Dashboard
+  const dashboard: MenuProps["items"] = [
     {
-      label: <Link href="/find-an-activities">Find an Activities</Link>,
-      key: `/find-an-activities`,
-      icon: <FileSearchOutlined style={{ fontSize: "19px" }} />,
+      label: <Link href="/dashboard">Dashboard</Link>,
+      key: `/dashboard`,
+      icon: <AppstoreOutlined style={{ fontSize: "19px" }} />,
     },
   ];
 
-  // find-an-activities
-  const yourActivities: MenuProps["items"] = [
+  // Activity
+  const activity: MenuProps["items"] = [
     {
-      label: <Link href="/your-activities">Your Activities</Link>,
-      key: `/your-activities`,
-      icon: <PiCalendarStarBold style={{ fontSize: "19px" }} />,
+      label: <Link href="/activity">Activity</Link>,
+      key: `/activity`,
+      icon: <CalendarOutlined style={{ fontSize: "19px" }} />,
+    },
+  ];
+  // user management
+  const userManagement: MenuProps["items"] = [
+    {
+      label: <Link href="/user-management">User Management</Link>,
+      key: `/user-management`,
+      icon: <UserOutlined style={{ fontSize: "19px" }} />,
     },
   ];
 
-  // Create an Activity
-  const createAnActivity: MenuProps["items"] = [
+  // Booster plan
+  const boosterPlan: MenuProps["items"] = [
     {
-      label: <Link href="/create-an-activity">Create an Activity</Link>,
-      key: `/create-an-activity`,
-      icon: <LuSquarePlus style={{ fontSize: "19px" }} />,
+      label: <Link href="/booster-plan">Booster plan</Link>,
+      key: `/booster-plan`,
+      icon: <IoRocketOutline style={{ fontSize: "19px" }} />,
     },
   ];
-  // friends
-  const friends: MenuProps["items"] = [
+  // Transaction
+  const transaction: MenuProps["items"] = [
     {
-      label: <Link href="/friends">Friends</Link>,
-      key: `/friends`,
-      icon: <FaHandsClapping style={{ fontSize: "19px" }} />,
+      label: <Link href="/transaction">Transaction</Link>,
+      key: `/transaction`,
+      icon: <GrLineChart style={{ fontSize: "19px" }} />,
     },
   ];
-  // Find Friends
-  const findFriends: MenuProps["items"] = [
+  // Settings
+  const settings: MenuProps["items"] = [
     {
-      label: <Link href="/find-friends">Find Friends</Link>,
-      key: `/find-friends`,
-      icon: <RiUserSearchLine style={{ fontSize: "19px" }} />,
+      label: "Settings",
+      key: `/settings`,
+      icon: <SettingOutlined style={{ fontSize: "19px" }} />,
+      children: [
+        {
+          label: <Link href="/settings/profile">Profile</Link>,
+          key: `/settings/profile`,
+          icon: <RiUserSettingsLine style={{ fontSize: "19px" }} />, // Example icon
+        },
+        {
+          label: <Link href="/settings/terms">Terms & Conditions</Link>,
+          key: `/settings/terms`,
+          icon: <MdOutlineDescription style={{ fontSize: "19px" }} />, // Example icon
+        },
+        {
+          label: <Link href="/settings/privacy">Privacy Policy</Link>,
+          key: `/settings/privacy`,
+          icon: <MdOutlinePrivacyTip style={{ fontSize: "19px" }} />, // Example icon
+        },
+        {
+          label: <Link href="/settings/version">Version Details</Link>,
+          key: `/settings/version`,
+          icon: <MdOutlineDescription style={{ fontSize: "19px" }} />, // Example icon
+        },
+        {
+          label: <Link href="/settings/contact">Contact</Link>,
+          key: `/settings/contact`,
+          icon: <MdOutlineContactSupport style={{ fontSize: "19px" }} />, // Example icon
+        },
+        {
+          label: <Link href="/settings/faqs">FAQs</Link>,
+          key: `/settings/faqs`,
+          icon: <AiOutlineQuestionCircle style={{ fontSize: "19px" }} />, // Example icon
+        },
+      ],
     },
   ];
-  // Messages
-  const messages: MenuProps["items"] = [
+
+  // logout
+  const logOut: MenuProps["items"] = [
     {
-      label: <Link href="/messages">Messages</Link>,
-      key: `/messages`,
-      icon: <TbMessages style={{ fontSize: "19px" }} />,
-    },
-  ];
-  // Notifications
-  const notifications: MenuProps["items"] = [
-    {
-      label: <Link href="/notifications">Notifications</Link>,
-      key: `/notifications`,
-      icon: <IoNotificationsOutline style={{ fontSize: "19px" }} />,
+      label: <Link href="/logout">Logout</Link>,
+      key: `/logout`,
+      icon: <LogoutOutlined style={{ fontSize: "19px" }} />,
     },
   ];
 
   const contents = [
-    ...findAnActivities,
-    ...yourActivities,
-    ...createAnActivity,
-    ...friends,
-    ...findFriends,
-    ...messages,
-    ...notifications,
+    ...dashboard,
+    ...activity,
+    ...userManagement,
+    ...boosterPlan,
+    ...transaction,
+    ...settings,
+    ...logOut,
   ];
 
   return contents;

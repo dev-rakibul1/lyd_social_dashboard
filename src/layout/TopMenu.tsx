@@ -3,7 +3,9 @@
 import { ColorPalette } from "@/theme/themes";
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Layout } from "antd";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 const { Header } = Layout;
 
@@ -45,12 +47,29 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
         borderBottom: `1px solid ${ColorPalette?.colorSecondaryBg}`,
       }}
     >
-      <div>
-        <Avatar
-          style={{ margin: "0 10px" }}
-          size="default"
-          icon={<UserOutlined />}
-        />
+      <Link href={`/notifications`}>
+        <div className="cursor-pointer">
+          <Avatar
+            style={{
+              margin: "0 10px",
+              border: "1px solid #fff",
+              background: "#fff",
+              color: "#6C19FF",
+            }}
+            size="default"
+            icon={<IoMdNotificationsOutline />}
+          />
+        </div>
+      </Link>
+      <div className="cursor-pointer">
+        <div>
+          <Avatar
+            style={{ margin: "0 10px", border: "1px solid #fff" }}
+            size="default"
+            icon={<UserOutlined />}
+          />
+          {/* <span className="text-white">Abir hasan</span> */}
+        </div>
 
         {isMobile && (
           <Button
@@ -60,6 +79,8 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
           />
         )}
       </div>
+
+      {/* Notification */}
     </Header>
   );
 };

@@ -117,3 +117,114 @@ input[type="text"] {
 .ant-input-password-icon {
   color: #fff !important;
 }
+
+/* ----------------------------ANT DESIGN TABLE------------------------- */
+
+.table-wrap {
+  background: #171717 !important;
+  border-radius: 7px;
+}
+.dark-table {
+  background: #171717 !important;
+}
+
+.dark-table .ant-table {
+  background: #171717 !important;
+}
+
+.dark-table .ant-table-thead > tr > th {
+  background: #171717 !important;
+  color: white !important;
+  border-color: #222 !important;
+}
+
+.dark-table .ant-table-tbody > tr > td {
+  background: #171717 !important;
+  color: white !important;
+  border-color: #222 !important;
+}
+
+.dark-table .ant-table-tbody > tr:hover {
+  background: #171717 !important;
+}
+
+.dark-table .ant-table-footer {
+  background: #171717 !important;
+  color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-a6nz8w).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before,
+:where(.css-dev-only-do-not-override-a6nz8w).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > td:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  width: 1px;
+  height: 1.6em;
+  background-color: transparent !important;
+  transform: translateY(-50%);
+  transition: background-color 0.2s;
+  content: "";
+}
+
+/* ----------------------------ANT DESIGN ACTIVE TABS------------------------- */
+.ant-tabs {
+  padding: 15px !important;
+}
+.ant-tabs-tab {
+  width: 120px;
+  padding: 15px;
+  border-radius: 5px 5px 0 0;
+}
+.ant-tabs-tab .ant-tabs-tab-btn {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ant-tabs-tab-active {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+:where(.css-dev-only-do-not-override-a6nz8w).ant-tabs-top
+  > .ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-a6nz8w).ant-tabs-bottom
+  > .ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-a6nz8w).ant-tabs-top
+  > div
+  > .ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-a6nz8w).ant-tabs-bottom
+  > div
+  > .ant-tabs-nav::before {
+  position: absolute;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid #222222 !important;
+  content: "";
+}
+
+/* ----------------------------ANT DESIGN INPUT------------------------- */
+
+.edit-profile-info input[type="text"],
+.booster-plan input[type="text"] {
+  border: 1px solid #fff !important;
+}
+
+.ant-input-prefix input {
+  border-color: transparent !important;
+}
+
+::placeholder {
+  color: #636363 !important;
+}
