@@ -28,7 +28,7 @@ const OTPForm = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-md  p-8 rounded-lg shadow-lg flex items-center justify-center flex-col">
+      <div className="w-full p-8 rounded-lg shadow-lg flex items-center justify-center flex-col border border-[#202020] max-w-xl">
         {/* Title */}
 
         <Title
@@ -44,19 +44,25 @@ const OTPForm = () => {
           className="block text-center text-gray-600"
           style={{ color: `${ColorPalette?.colorTextPrimary}` }}
         >
-          We have sent a verification code to
+          We sent a code to your email address
         </Text>
 
         {/* Email Address */}
         <Text
-          className="block text-center text-gray-800 font-semibold mb-6"
+          className="block text-center text-gray-800 font-semibold"
           style={{ color: `${ColorPalette?.colorTextPrimary}` }}
         >
           robert56@gmail.com
         </Text>
+        <Text
+          className="block text-center text-gray-800 font-semibold mb-6"
+          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+        >
+          Please check your email for the 5 digit code.
+        </Text>
 
         {/* OTP Input Form */}
-        <Form onFinish={onFinish}>
+        <Form onFinish={onFinish} style={{ marginTop: "40px" }}>
           {/* OTP Input Field */}
           <Form.Item
             name="otp"
@@ -79,7 +85,7 @@ const OTPForm = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="w-full bg-purple-600 hover:bg-purple-700 mt-7"
+              className="w-full bg-purple-600 hover:bg-purple-700"
               style={{ minHeight: "40px" }}
             >
               Verify
@@ -88,7 +94,7 @@ const OTPForm = () => {
         </Form>
 
         {/* Resend OTP Link */}
-        <div className="text-center mt-4">
+        <div className="text-center">
           <Text
             className="text-gray-600"
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}

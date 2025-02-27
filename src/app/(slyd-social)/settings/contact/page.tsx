@@ -1,5 +1,11 @@
+import ContactCom from "@/components/settings/contact/ContactCom";
+
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <ContactCom />
+    </div>
+  );
 };
 
 export default Contact;

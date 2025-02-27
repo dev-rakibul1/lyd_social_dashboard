@@ -1,5 +1,11 @@
+import Versions from "@/components/settings/versions/Versions";
+
 const Version = () => {
-  return <div>Version</div>;
+  return (
+    <div>
+      <Versions />
+    </div>
+  );
 };
 
 export default Version;

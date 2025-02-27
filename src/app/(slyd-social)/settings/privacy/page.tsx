@@ -1,5 +1,11 @@
+import PrivacyCom from "@/components/settings/privacy/Privacy";
+
 const Privacy = () => {
-  return <div>Privacy</div>;
+  return (
+    <div>
+      <PrivacyCom />
+    </div>
+  );
 };
 
 export default Privacy;

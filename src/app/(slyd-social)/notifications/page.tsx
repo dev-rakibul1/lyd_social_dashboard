@@ -1,5 +1,11 @@
+import NotificationsCom from "@/components/notifications/NotificationsCom";
+
 const Notifications = () => {
-  return <div>Notifications</div>;
+  return (
+    <div>
+      <NotificationsCom />
+    </div>
+  );
 };
 
 export default Notifications;

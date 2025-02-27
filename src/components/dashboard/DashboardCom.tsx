@@ -7,7 +7,7 @@ import TopCard from "./topCard/TopCard";
 import DashboardUser from "./users/DashboardUser";
 
 const cardData = fakeDashboardTopData;
-const activityData = data?.slice(0, 3);
+const activityData = data?.slice(0, 5);
 
 export default function Dashboard() {
   return (

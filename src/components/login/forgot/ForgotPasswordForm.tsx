@@ -18,7 +18,7 @@ const ForgotPasswordForm = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="w-full lg:w-[500px] p-6 rounded-lg">
+      <div className="w-full lg:w-[500px] p-6 rounded-lg border border-[#202020] max-w-xl m-2">
         <Title
           level={2}
           className="text-center"
@@ -33,7 +33,11 @@ const ForgotPasswordForm = () => {
           Please enter your email to get verification code
         </Text>
 
-        <Form layout="vertical" onFinish={onFinish}>
+        <Form
+          layout="vertical"
+          onFinish={onFinish}
+          style={{ marginTop: "60px" }}
+        >
           {/* Email Field */}
           <Form.Item
             label={<span className="text-white">Email address</span>}
@@ -47,6 +51,7 @@ const ForgotPasswordForm = () => {
               style={{ outline: "none", border: "transparent" }}
               size="large"
               className="bg-gray-900 text-white"
+              placeholder="Your email"
             />
           </Form.Item>
 

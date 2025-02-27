@@ -6,11 +6,14 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, ConfigProvider, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import React, { useState } from "react";
+import DeleteBoosterModal from "../forms/DeleteData";
 import EditFormModal from "../forms/EditFormModal";
 import EditProfileEventForm from "../forms/EditProfileEventForm";
 
 const EventBoosters: React.FC = () => {
   const [EditFormOpen, setEditFormOpen] = useState<boolean>(false);
+  const [DeleteBoosterOpen, setDeleteBoosterOpen] = useState<boolean>(false);
+  const [CatchData, setCatchData] = useState<{}>({});
 
   const columns: ColumnsType<BoosterPackage> = [
     {
@@ -40,12 +43,16 @@ const EventBoosters: React.FC = () => {
     {
       title: "Action",
       key: "action",
-      render: () => (
+      render: (_: any, record: any) => (
         <div className="flex gap-2">
           <Button type="primary" onClick={() => setEditFormOpen(true)}>
             <EditOutlined />
           </Button>
-          <Button type="primary" style={{ background: "#DC4600" }}>
+          <Button
+            type="primary"
+            style={{ background: "#DC4600" }}
+            onClick={() => handleAlert(record)}
+          >
             <DeleteOutlined />
           </Button>
         </div>
@@ -53,8 +60,23 @@ const EventBoosters: React.FC = () => {
     },
   ];
 
+  const handleAlert = (data: any) => {
+    if (!data) return;
+    setCatchData(data);
+    setDeleteBoosterOpen(true);
+  };
+
   return (
     <>
+      <DeleteBoosterModal
+        isOpen={DeleteBoosterOpen}
+        onConfirm={() => {
+          setDeleteBoosterOpen(false);
+        }}
+        onCancel={() => setDeleteBoosterOpen(false)}
+        data={CatchData}
+      />
+
       <EditFormModal
         isOpen={EditFormOpen}
         onConfirm={() => {
@@ -66,18 +88,6 @@ const EventBoosters: React.FC = () => {
       </EditFormModal>
       <div className=" text-white ">
         {/* Table */}
-
-        {/* <Table
-          columns={columns}
-          dataSource={boosterPackages}
-          pagination={false}
-          rowClassName="hover:bg-gray-90"
-          rowKey="sl"
-          className="dark-table"
-          scroll={{ x: "max-content" }}
-          style={{ border: "transparent", borderBottom: "transparent" }}
-          bordered={false}
-        /> */}
 
         <ConfigProvider
           theme={{

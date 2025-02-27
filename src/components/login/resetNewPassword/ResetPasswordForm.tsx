@@ -24,7 +24,7 @@ const ResetPasswordForm = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="w-full lg:w-[500px] p-6 rounded-lg">
+      <div className="w-full lg:w-[500px] p-6 rounded-lg border border-[#202020] max-w-xl m-2">
         <Title
           level={2}
           className="text-center"
@@ -33,17 +33,21 @@ const ResetPasswordForm = () => {
           Set a new password
         </Title>
         <Text
-          className="block text-center mb-12 text-base"
+          className="block text-center mb-12"
           style={{
             color: `${ColorPalette?.colorTextPrimary}`,
-            fontSize: "17px",
+            fontSize: "16px",
           }}
         >
           Create a new password. Ensure it differs from previous ones for
           security
         </Text>
 
-        <Form layout="vertical" onFinish={onFinish}>
+        <Form
+          layout="vertical"
+          onFinish={onFinish}
+          style={{ marginTop: "60px" }}
+        >
           {/* Password Field */}
           <Form.Item
             label={<span className="text-white">Password</span>}
@@ -58,6 +62,7 @@ const ResetPasswordForm = () => {
                 padding: "0px 11px",
                 border: "transparent",
               }}
+              placeholder="************"
             />
           </Form.Item>
 
@@ -88,6 +93,7 @@ const ResetPasswordForm = () => {
                 padding: "0px 11px",
                 border: "transparent",
               }}
+              placeholder="************"
             />
           </Form.Item>
 

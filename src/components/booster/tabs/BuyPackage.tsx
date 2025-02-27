@@ -4,11 +4,14 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, ConfigProvider, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import React, { useState } from "react";
+import DeleteBoosterModal from "../forms/DeleteData";
 import EditBuyForm from "../forms/EditByForm";
 import EditFormModal from "../forms/EditFormModal";
 
 const BuyPackage: React.FC = () => {
   const [EditFormOpen, setEditFormOpen] = useState<boolean>(false);
+  const [DeleteBoosterOpen, setDeleteBoosterOpen] = useState<boolean>(false);
+  const [CatchData, setCatchData] = useState<{}>({});
 
   const columns: ColumnsType<BoosterPackage> = [
     {
@@ -56,7 +59,11 @@ const BuyPackage: React.FC = () => {
           <Button type="primary" onClick={() => setEditFormOpen(true)}>
             <EditOutlined />
           </Button>
-          <Button type="primary" style={{ background: "#DC4600" }}>
+          <Button
+            type="primary"
+            style={{ background: "#DC4600" }}
+            onClick={() => handleAlert(record)}
+          >
             <DeleteOutlined />
           </Button>
         </div>
@@ -64,8 +71,23 @@ const BuyPackage: React.FC = () => {
     },
   ];
 
+  const handleAlert = (data: any) => {
+    if (!data) return;
+    setCatchData(data);
+    setDeleteBoosterOpen(true);
+  };
+
   return (
     <>
+      <DeleteBoosterModal
+        isOpen={DeleteBoosterOpen}
+        onConfirm={() => {
+          setDeleteBoosterOpen(false);
+        }}
+        onCancel={() => setDeleteBoosterOpen(false)}
+        data={CatchData}
+      />
+
       <EditFormModal
         isOpen={EditFormOpen}
         onConfirm={() => {

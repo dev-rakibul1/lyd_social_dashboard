@@ -1,5 +1,11 @@
+import TermsCom from "@/components/settings/terms/TermsCom";
+
 const Terms = () => {
-  return <div>Terms</div>;
+  return (
+    <div>
+      <TermsCom />
+    </div>
+  );
 };
 
 export default Terms;

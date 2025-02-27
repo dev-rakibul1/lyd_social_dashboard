@@ -379,6 +379,7 @@ export const fakeDashboardTopData = [
 
 export const data = [
   {
+    id: "1",
     sl: "#12333",
     title: "Pool Party",
     host: {
@@ -390,6 +391,7 @@ export const data = [
     status: "Upcoming",
   },
   {
+    id: "2",
     sl: "#12334",
     title: "Birthday Party",
     host: {
@@ -401,6 +403,7 @@ export const data = [
     status: "Completed",
   },
   {
+    id: "15",
     sl: "#12335",
     title: "Library Study",
     host: {
@@ -412,6 +415,7 @@ export const data = [
     status: "Upcoming",
   },
   {
+    id: "14",
     sl: "#12336",
     title: "Night Party",
     host: {
@@ -423,6 +427,7 @@ export const data = [
     status: "Upcoming",
   },
   {
+    id: "11",
     sl: "#12337",
     title: "Pool Party",
     host: {
@@ -434,6 +439,7 @@ export const data = [
     status: "Completed",
   },
   {
+    id: "154",
     sl: "#12338",
     title: "Birthday Party",
     host: {
@@ -445,6 +451,7 @@ export const data = [
     status: "Upcoming",
   },
   {
+    id: "1554",
     sl: "#12339",
     title: "Night Party",
     host: {
@@ -456,6 +463,7 @@ export const data = [
     status: "Completed",
   },
   {
+    id: "1544",
     sl: "#12340",
     title: "Birthday Party",
     host: {
@@ -467,6 +475,7 @@ export const data = [
     status: "Upcoming",
   },
   {
+    id: "19965",
     sl: "#12341",
     title: "Night Party",
     host: {
@@ -478,6 +487,7 @@ export const data = [
     status: "Completed",
   },
   {
+    id: "19696544",
     sl: "#12342",
     title: "Pool Party",
     host: {

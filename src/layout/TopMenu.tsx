@@ -61,15 +61,16 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
           />
         </div>
       </Link>
+
       <div className="cursor-pointer">
-        <div>
+        <Link href={`/settings/profile`}>
           <Avatar
             style={{ margin: "0 10px", border: "1px solid #fff" }}
             size="default"
             icon={<UserOutlined />}
           />
           {/* <span className="text-white">Abir hasan</span> */}
-        </div>
+        </Link>
 
         {isMobile && (
           <Button
