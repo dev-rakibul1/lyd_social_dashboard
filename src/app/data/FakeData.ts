@@ -365,7 +365,7 @@ export const fakeDashboardTopData = [
     id: 3,
     title: "New Signups",
     value: "12,745",
-    icon: "/assets/images/new-signups.png",
+    icon: "/assets/images/users.png",
     bgColor: "bg-blue-400",
   },
   {

@@ -14,18 +14,18 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Feb", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Mar", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Apr", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "May", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Jun", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Jul", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Aug", uv: 4200, pv: 4100, amt: 2300 },
-  { name: "Sep", uv: 3100, pv: 4600, amt: 2200 },
-  { name: "Oct", uv: 2600, pv: 3500, amt: 2000 },
-  { name: "Nov", uv: 3900, pv: 5000, amt: 2500 },
-  { name: "Dec", uv: 4400, pv: 5300, amt: 2800 },
+  { name: "Jan", rev: 4000, pv: 2400, amt: 2400 },
+  { name: "Feb", rev: 3000, pv: 1398, amt: 2210 },
+  { name: "Mar", rev: 2000, pv: 9800, amt: 2290 },
+  { name: "Apr", rev: 2780, pv: 3908, amt: 2000 },
+  { name: "May", rev: 1890, pv: 4800, amt: 2181 },
+  { name: "Jun", rev: 2390, pv: 3800, amt: 2500 },
+  { name: "Jul", rev: 3490, pv: 4300, amt: 2100 },
+  { name: "Aug", rev: 4200, pv: 4100, amt: 2300 },
+  { name: "Sep", rev: 3100, pv: 4600, amt: 2200 },
+  { name: "Oct", rev: 2600, pv: 3500, amt: 2000 },
+  { name: "Nov", rev: 3900, pv: 5000, amt: 2500 },
+  { name: "Dec", rev: 4400, pv: 5300, amt: 2800 },
 ];
 
 const IncomeOverviewChart = () => {
@@ -113,6 +113,14 @@ const IncomeOverviewChart = () => {
           <Area
             type="monotone"
             dataKey="uv"
+            stroke="url(#gradientStroke)"
+            fill="url(#gradientFill)"
+            strokeWidth={3}
+          />
+
+          <Area
+            type="monotone"
+            dataKey="rev" // Changed from "uv" to "rev"
             stroke="url(#gradientStroke)"
             fill="url(#gradientFill)"
             strokeWidth={3}

@@ -1,7 +1,9 @@
 "use client";
 
+import LogOutModal from "@/components/logout/LogOutModal";
 import { TriggerSiderStyle } from "@/styles/GStyle";
 import { ColorPalette } from "@/theme/themes";
+import { LogoutOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +21,7 @@ const Sidebar = ({
 }: any) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [LogOutOpen, setLogOutOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -37,6 +40,14 @@ const Sidebar = ({
 
   return (
     <>
+      <LogOutModal
+        isOpen={LogOutOpen}
+        onConfirm={() => {
+          setLogOutOpen(false);
+        }}
+        onCancel={() => setLogOutOpen(false)}
+      />
+
       {/* Overlay to close menu */}
       {isMobile && (
         <div
@@ -90,10 +101,20 @@ const Sidebar = ({
           mode="inline"
           items={sidebarItems()}
           style={{
-            minHeight: "100vh",
+            minHeight: "80vh",
             background: `${ColorPalette.sidebarBg}`,
           }}
         />
+
+        <div className="z-10 bg-pink-700 px-7 mt-2">
+          <button
+            className="text-[#c2c8d3] text-base"
+            onClick={() => setLogOutOpen(true)}
+          >
+            <LogoutOutlined className="text-[22px]" />{" "}
+            <span className="text-[14px] inline-block mr-1">log out</span>
+          </button>
+        </div>
       </Sider>
     </>
   );

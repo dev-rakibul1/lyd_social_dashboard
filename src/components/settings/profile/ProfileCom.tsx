@@ -1,8 +1,10 @@
 "use client";
 
 import { CameraOutlined } from "@ant-design/icons";
-import { Avatar, Button, Input, Tabs } from "antd";
+import { Avatar, Tabs } from "antd";
 import { useState } from "react";
+import ChangePassword from "./tabs/ChangePassword";
+import EditProfile from "./tabs/EditProfile";
 
 const { TabPane } = Tabs;
 
@@ -18,10 +20,6 @@ const ProfileCom = () => {
     "https://randomuser.me/api/portraits/men/75.jpg"
   );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const imageUrl = URL.createObjectURL(e.target.files[0]);
@@ -31,8 +29,8 @@ const ProfileCom = () => {
 
   return (
     <div className="bg-[#171717] flex items-center justify-center p-6 h-screen">
-      <div className="bg-[#121d212] p-8 rounded-lg shadow-lg w-full text-center h-screen max-w-4xl ">
-        {/* Profile Image */}
+      <div className="bg-[#121d212] p-8 rounded-lg shadow-lg w-full text-center h-screen max-w-4xl">
+        {/* Profile Image and Name */}
         <div className="relative inline-block">
           <Avatar
             size={120}
@@ -49,92 +47,19 @@ const ProfileCom = () => {
             />
           </label>
         </div>
+        <h2 className="text-white text-2xl font-semibold mt-2">
+          {formData.name}
+        </h2>
+        <p className="text-white">{formData.email}</p>
 
-        {/* Profile Name */}
-        <h2 className="text-white text-2xl font-semibold mt-2">Mr. Admin</h2>
-
-        {/* Tabs */}
+        {/* Tabs for Edit Profile and Change Password */}
         <Tabs defaultActiveKey="1" centered className="text-white mt-4">
-          <TabPane
-            tab={<span className="text-purple-500">Edit Profile</span>}
-            key="1"
-          >
-            <h3 className="text-white text-lg font-semibold mt-4">
-              Edit Your Profile
-            </h3>
-
-            <div className="text-left mt-4 edit-profile-info">
-              <label className="text-white block mb-1">User Name</label>
-              <Input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="bg-black text-white border border-gray-600"
-              />
-
-              <label className="text-white block mt-4 mb-1">Email</label>
-              <Input
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="bg-black text-white border border-gray-600"
-              />
-
-              <label className="text-white block mt-4 mb-1">Contact no</label>
-              <Input
-                name="contact"
-                value={formData.contact}
-                onChange={handleChange}
-                className="bg-black text-white border border-gray-600"
-              />
-
-              <label className="text-white block mt-4 mb-1">Address</label>
-              <Input
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                className="bg-black text-white border border-gray-600"
-              />
-
-              <Button
-                type="primary"
-                block
-                className="bg-purple-600 hover:bg-purple-700 mt-6"
-                style={{ height: "40px" }}
-              >
-                Save Change
-              </Button>
-            </div>
+          <TabPane tab={<span className="">Edit Profile</span>} key="1">
+            <EditProfile />
           </TabPane>
 
-          <TabPane
-            tab={<span className="text-white">Change Password</span>}
-            key="2"
-          >
-            <h3 className="text-white text-lg font-semibold mt-4">
-              Change Your Password
-            </h3>
-            <div className="text-left mt-4">
-              <label className="text-white block mb-1">Old Password</label>
-              <Input.Password className="bg-black text-white border border-gray-600" />
-
-              <label className="text-white block mb-1 mt-4">New Password</label>
-              <Input.Password className="bg-black text-white border border-gray-600" />
-
-              <label className="text-white block mt-4 mb-1">
-                Confirm Password
-              </label>
-              <Input.Password className="bg-black text-white border border-gray-600" />
-
-              <Button
-                type="primary"
-                block
-                className="bg-purple-600 hover:bg-purple-700 mt-6"
-                style={{ height: "40px" }}
-              >
-                Update Password
-              </Button>
-            </div>
+          <TabPane tab={<span className="">Change Password</span>} key="2">
+            <ChangePassword />
           </TabPane>
         </Tabs>
       </div>

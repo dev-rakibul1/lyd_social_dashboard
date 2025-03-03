@@ -192,10 +192,6 @@ input[type="text"] {
   align-items: center;
   justify-content: center;
 }
-.ant-tabs-tab-active {
-  background: #000 !important;
-  color: #fff !important;
-}
 
 :where(.css-dev-only-do-not-override-a6nz8w).ant-tabs-top
   > .ant-tabs-nav::before,
@@ -234,4 +230,14 @@ input[type="text"] {
   background-color: #171717 !important;
   border: 1px solid #fff !important;
   color: #fff;
+}
+
+.ant-tabs-tab-active {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff !important;
+  text-shadow: 0 0 0.25px currentcolor;
 }

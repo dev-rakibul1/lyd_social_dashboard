@@ -15,18 +15,18 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Feb", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Mar", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Apr", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "May", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Jun", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Jul", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Aug", uv: 4200, pv: 4100, amt: 2300 },
-  { name: "Sep", uv: 3100, pv: 4600, amt: 2200 },
-  { name: "Oct", uv: 2600, pv: 3500, amt: 2000 },
-  { name: "Nov", uv: 3900, pv: 5000, amt: 2500 },
-  { name: "Dec", uv: 4400, pv: 5300, amt: 2800 },
+  { name: "Jan", uv: 4000, sales: 2400, amt: 2400 },
+  { name: "Feb", uv: 3000, sales: 1398, amt: 2210 },
+  { name: "Mar", uv: 2000, sales: 9800, amt: 2290 },
+  { name: "Apr", uv: 2780, sales: 3908, amt: 2000 },
+  { name: "May", uv: 1890, sales: 4800, amt: 2181 },
+  { name: "Jun", uv: 2390, sales: 3800, amt: 2500 },
+  { name: "Jul", uv: 3490, sales: 4300, amt: 2100 },
+  { name: "Aug", uv: 4200, sales: 4100, amt: 2300 },
+  { name: "Sep", uv: 3100, sales: 4600, amt: 2200 },
+  { name: "Oct", uv: 2600, sales: 3500, amt: 2000 },
+  { name: "Nov", uv: 3900, sales: 5000, amt: 2500 },
+  { name: "Dec", uv: 4400, sales: 5300, amt: 2800 },
 ];
 
 const UserGrowthChart = () => {
@@ -47,7 +47,7 @@ const UserGrowthChart = () => {
             onValuesChange={onValuesChange}
           >
             <Form.Item name="year" rules={[{ required: true }]}>
-              <Select placeholder="Select a option and change input text above">
+              <Select placeholder="Select a year">
                 <Option value="2025">2025</Option>
                 <Option value="2024">2024</Option>
                 <Option value="2023">2023</Option>
@@ -59,7 +59,7 @@ const UserGrowthChart = () => {
           </Form>
         </div>
       </div>
-      {/* Add a fixed height to the ResponsiveContainer */}
+
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
           data={data}
@@ -69,11 +69,16 @@ const UserGrowthChart = () => {
           <CartesianGrid strokeDasharray="3 3" stroke="#555" />
           <XAxis dataKey="name" stroke="white" />
           <YAxis stroke="white" />
-          <Tooltip contentStyle={{ backgroundColor: "#333", color: "#fff" }} />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#333", color: "#fff" }}
+            cursor={{ fill: "transparent" }} // Removes hover background
+          />
           <Legend />
           <Bar
-            dataKey="pv"
+            dataKey="sales"
             fill="#7DFF19"
+            // @ts-ignore
+            activeShape={null} // Disable active state
             background={{ fill: "transparent" }}
           />
         </BarChart>

@@ -1,7 +1,6 @@
 import {
   AppstoreOutlined,
   CalendarOutlined,
-  LogoutOutlined,
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
@@ -16,6 +15,7 @@ import {
   MdOutlinePrivacyTip,
 } from "react-icons/md";
 import { RiUserSettingsLine } from "react-icons/ri";
+import { TbListDetails } from "react-icons/tb";
 
 const sidebarItems = () => {
   // Dashboard
@@ -85,7 +85,7 @@ const sidebarItems = () => {
         {
           label: <Link href="/settings/version">Version Details</Link>,
           key: `/settings/version`,
-          icon: <MdOutlineDescription style={{ fontSize: "19px" }} />, // Example icon
+          icon: <TbListDetails style={{ fontSize: "19px" }} />, // Example icon
         },
         {
           label: <Link href="/settings/contact">Contact</Link>,
@@ -102,13 +102,13 @@ const sidebarItems = () => {
   ];
 
   // logout
-  const logOut: MenuProps["items"] = [
-    {
-      label: <Link href="/logout">Logout</Link>,
-      key: `/logout`,
-      icon: <LogoutOutlined style={{ fontSize: "19px" }} />,
-    },
-  ];
+  // const logOut: MenuProps["items"] = [
+  //   {
+  //     label: <Link href="/logout">Logout</Link>,
+  //     key: `/logout`,
+  //     icon: <LogoutOutlined style={{ fontSize: "19px" }} />,
+  //   },
+  // ];
 
   const contents = [
     ...dashboard,
@@ -117,7 +117,7 @@ const sidebarItems = () => {
     ...boosterPlan,
     ...transaction,
     ...settings,
-    ...logOut,
+    // ...logOut,
   ];
 
   return contents;
